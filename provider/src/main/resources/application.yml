@@ -1,0 +1,12 @@
+dubbo:
+  application:
+    name: demo-provider
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    id: demo-provider
+    port: 20880
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  
