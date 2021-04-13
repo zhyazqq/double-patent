@@ -6,6 +6,7 @@
     <modules>
         <module>cosumer</module>
         <module>provider</module>
+        <module>demo-provider</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

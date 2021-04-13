@@ -1,5 +1,6 @@
 package top.zhuqq.service.impl;
 
+import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.dubbo.config.annotation.Service;
 import top.zhuqq.service.DemoService;
 
@@ -11,7 +12,7 @@ import top.zhuqq.service.DemoService;
  * date : 2021/4/12.
  * time : 23:02.
  */
-@Service
+@DubboService
 public class DemoServiceImpl implements DemoService {
 
     @Override

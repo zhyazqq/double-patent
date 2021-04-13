@@ -36,3 +36,9 @@ gen
 # Project exclude paths
 /cosumer/target/
 /provider/target/
+.gitignore
+cosumer/pom.xml
+cosumer/src/
+pom.xml
+provider/pom.xml
+provider/src/
