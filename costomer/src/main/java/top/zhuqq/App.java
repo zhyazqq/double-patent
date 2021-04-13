@@ -3,21 +3,20 @@ package top.zhuqq;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 /**
  * project-name : double-patent.
- * class-name : AppProvider.
+ * class-name : App.
  *
  * @author : Zqq.
- * date : 2021/4/12.
- * time : 23:24.
+ * date : 2021/4/13.
+ * time : 22:22.
  */
+@EnableDubbo(scanBasePackages = "top.zhuqq.service")
+// scanBasePackages扫描生产者包
 @SpringBootApplication
-@EnableDubbo(scanBasePackages = "top.zhuqq.provider.service.impl")
-public class AppProvider {
+public class App {
     public static void main(String[] args) {
-        SpringApplication.run(AppProvider.class,args);
+        SpringApplication.run(App.class,args);
     }
 }
