@@ -2,8 +2,13 @@ package top.zhuqq.controller;
 
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import top.zhuqq.bean.UserFactoryBean;
+import top.zhuqq.entity.User;
 import top.zhuqq.service.DemoService;
 
 /**
@@ -16,12 +21,22 @@ import top.zhuqq.service.DemoService;
  */
  @RestController
  @RequestMapping("/test")
-public class DemoController {
+public class DemoController implements BeanFactoryAware {
+
+     private BeanFactory beanFactory;
      @DubboReference(interfaceClass =DemoService.class )
      private DemoService service;
      @RequestMapping("/demo")
-    public String getService() {
-              service.demo();
+    public String getService() throws Exception {
+         User user = (User)beanFactory.getBean("userFactoryBean");
+         User user1 = (User)beanFactory.getBean("userFactoryBean");
+         System.out.println(user+"++"+user1);
+         service.demo();
         return "service";
+    }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+     this.beanFactory=beanFactory;
     }
 }
