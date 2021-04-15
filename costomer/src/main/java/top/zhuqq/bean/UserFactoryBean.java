@@ -13,6 +13,7 @@ import top.zhuqq.entity.User;
  * date : 2021/4/14.
  * time : 22:43.
  */
+@Component
 public class UserFactoryBean implements FactoryBean<User> {
     @Override
     public User getObject() {
@@ -29,5 +30,6 @@ public class UserFactoryBean implements FactoryBean<User> {
     public boolean isSingleton() {
         return true;
     }
+
 
 }

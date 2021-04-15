@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
  * date : 2021/4/14.
  * time : 23:07.
  */
-@Component
-public class BeanConfig {
-    @Bean
-    public UserFactoryBean userFactoryBean(){
-        return new UserFactoryBean();
-    }
-}
+//@Component
+//public class BeanConfig {
+//    @Bean
+//    public UserFactoryBean userFactoryBean(){
+//        return new UserFactoryBean();
+//    }
+//}

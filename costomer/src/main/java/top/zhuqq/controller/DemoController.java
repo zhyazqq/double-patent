@@ -5,11 +5,15 @@ import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.zhuqq.bean.UserFactoryBean;
 import top.zhuqq.entity.User;
 import top.zhuqq.service.DemoService;
+
+import javax.annotation.Nullable;
+import javax.annotation.Resource;
 
 /**
  * project-name : double-patent.
@@ -29,14 +33,15 @@ public class DemoController implements BeanFactoryAware {
      @RequestMapping("/demo")
     public String getService() throws Exception {
          User user = (User)beanFactory.getBean("userFactoryBean");
-         User user1 = (User)beanFactory.getBean("userFactoryBean");
+         UserFactoryBean user1 = (UserFactoryBean)beanFactory.getBean("&userFactoryBean");
          System.out.println(user+"++"+user1);
          service.demo();
         return "service";
     }
 
     @Override
-    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+
+    public void setBeanFactory(@Nullable BeanFactory beanFactory) throws BeansException {
      this.beanFactory=beanFactory;
     }
 }
